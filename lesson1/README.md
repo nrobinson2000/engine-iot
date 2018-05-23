@@ -1,15 +1,6 @@
 [![Built with po-util](https://rawgit.com/nrobinson2000/po-util/master/images/built-with-po-util.svg)](https://po-util.com)
 
-# Lesson 1: Introduction to the Particle Photon
-
-The Particle Photon is a programmable microprocessor board that is great for IoT (Internet of Things) projects.
-
-It can be programmed in several ways, but the recommended way to program it (by Nathan) is to use Atom and po.
-More about that soon.
-
-Much like Arduino, every Photon sketch must contain a `setup()` function and a `loop()` function. `setup()` runs once when the Photon is powered up (via USB, battery, etc.), and `loop()` continuously runs repeatedly after `setup()` until the Photon is powered down.
-
-At a low level, the Photon's behavior can be summarized as the control of its pins. There are many pins on the Photon, and many of them can be controlled by programs to do different functions.
+# Lesson 1: Digital Input and Output
 
 Two common tasks that the Photon can do with all of its programmable pins (D0-D7 & A0-TX) are digital output and digital input. Digital output is either 0 volts or 3.3 volts. Digital input is LOW when the voltage is closer to 0 volts, and HIGH when the voltage is closer to 3.3 volts. Digital output and input are used to turn a component on or off, or determine if a component is emitting HIGH or LOW voltage.
 
