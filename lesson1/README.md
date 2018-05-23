@@ -17,7 +17,7 @@ Two common tasks that the Photon can do with all of its programmable pins (D0-D7
 
 ### Circuit Diagram:
 
-![lesson1-diagram.png]
+![](lesson1-diagram.png)
 
 ## Part 1: Intro
 
