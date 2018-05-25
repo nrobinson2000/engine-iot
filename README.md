@@ -18,3 +18,7 @@ Particle Photon lesson plans and resources for the the Maine FabLab at Engine
 ### [Lesson 2: Analog Input and Output](lesson2)
 
 ### [Lesson 3: Advanced I/O](lesson3)
+
+### [Lesson 4: Introduction to the Particle Cloud](lesson4)
+
+### [Lesson 5: Particle and Alexa](lesson5)

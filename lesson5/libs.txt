@@ -1,0 +1,2 @@
+ OneWire
+https://github.com/nrobinson2000/spark-dallas-temperature spark-dallas-temperature
