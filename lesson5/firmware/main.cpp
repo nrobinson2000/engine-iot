@@ -9,9 +9,7 @@ DallasTemperature dallas(new OneWire(D3));
 
 double lastTemp;
 double tempF;
-
 String tempFString;
-
 int brightness;
 
 inline void softDelay(uint32_t msDelay)
@@ -19,38 +17,20 @@ inline void softDelay(uint32_t msDelay)
   for (uint32_t ms = millis(); millis() - ms < msDelay; Particle.process());
 }
 
-int ledToggle(String command)
-{
-  if (command == "ON")
-  {
-    digitalWrite(A0, HIGH);
-    return 1;
-  }
-  else
-  {
-    digitalWrite(A0, LOW);
-    return 0;
-  }
-}
-
 void setup() // Put setup code here to run once
 {
+  pinMode(A5, OUTPUT);
+  digitalWrite(A5, HIGH);
+  pinMode(A1, INPUT);
 
-pinMode(A5, OUTPUT);
-digitalWrite(A5, HIGH);
-pinMode(A1, INPUT);
-pinMode(A0, OUTPUT);
+  dallas.begin();
 
-dallas.begin();
+  Serial.begin(115200);
 
-Serial.begin(115200);
+  Particle.variable("brightness", brightness);
+  Particle.variable("temperature", tempFString);
 
-Particle.variable("brightness", brightness);
-Particle.variable("temperature", tempFString);
-
-Particle.function("ledToggle", ledToggle);
-
-Particle.connect();
+  Particle.connect();
 }
 
 void loop() // Put code here to loop forever
