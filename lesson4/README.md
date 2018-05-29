@@ -7,8 +7,9 @@ What really makes the Photon stand out from other microprocessor boards is the P
 The Particle Cloud provides a simple and secure way to make IoT projects with the Particle Photon.
 
 
+### Photon to Photon communication:
 
-
+In this lesson we'll communicate wirelessly between two Photons to send and receive data.
 
 
 

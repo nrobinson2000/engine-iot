@@ -1,3 +1,4 @@
+#include "SparkJson/SparkJson.h"
 #include "Particle.h"
 
 SYSTEM_MODE(SEMI_AUTOMATIC); // Disable the Particle Cloud until we do Particle.connect()
@@ -8,7 +9,28 @@ inline void softDelay(uint32_t msDelay)
   for (uint32_t ms = millis(); millis() - ms < msDelay; Particle.process());
 }
 
-int reading;
+int brightness;
+double temperature;
+
+void subscribeHandler(const char *event, const char *data)
+{
+
+char *mutableData = strdup(data);
+
+  StaticJsonBuffer<1000> jsonBuffer;
+  	JsonObject& root = jsonBuffer.parseObject(mutableData);
+
+    if (!root.success()) {
+    		Serial.println("parseObject() failed");
+    	    return;
+    	}
+
+brightness = atoi(root["brightness"].asString());
+temperature = atof(root["temperature"].asString());
+
+Serial.printlnf("Temperature: %.2f\t Brightness: %d%%", temperature, brightness);
+
+}
 
 int toggleLight(String input)
 {
@@ -20,36 +42,33 @@ int toggleLight(String input)
   {
     digitalWrite(D7, LOW);
   }
-}
 
+  return 0;
+}
 
 void setup() // Put setup code here to run once
 {
 
-  pinMode(A5, OUTPUT);
-  digitalWrite(A5, HIGH);
-  pinMode(A1, INPUT);
+pinMode(A0, INPUT_PULLUP);
+pinMode(D7, OUTPUT);
 
-  pinMode(D7, OUTPUT);
+Serial.begin(115200);
 
-  Particle.variable("light", reading);
+Particle.subscribe("engineReading", subscribeHandler);
 
-  Particle.function("setLight", toggleLight);
+Particle.function("setLight", toggleLight);
 
-  // Connect to the Particle Cloud
-  Particle.connect();
-  // the connection is maintained automatically
+Particle.connect();
 
 }
 
 void loop() // Put code here to loop forever
 {
 
-//Particle.publish("light", String(analogRead(A1)));
-
-reading = analogRead(A1);
-
-//delay(4000);
-
+  if (digitalRead(A0) == false)
+  {
+    Particle.publish("engine-button");
+    softDelay(250);
+  }
 
 }

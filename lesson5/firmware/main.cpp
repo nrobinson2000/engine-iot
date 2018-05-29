@@ -12,9 +12,20 @@ double tempF;
 String tempFString;
 int brightness;
 
+char message[256];
+
 inline void softDelay(uint32_t msDelay)
 {
   for (uint32_t ms = millis(); millis() - ms < msDelay; Particle.process());
+}
+
+void subscribeHandler(const char *event, const char *data)
+{
+
+digitalWrite(D7, !(digitalRead(D7)));
+
+
+
 }
 
 void setup() // Put setup code here to run once
@@ -23,12 +34,16 @@ void setup() // Put setup code here to run once
   digitalWrite(A5, HIGH);
   pinMode(A1, INPUT);
 
+  pinMode(D7, OUTPUT);
+
   dallas.begin();
 
   Serial.begin(115200);
 
   Particle.variable("brightness", brightness);
   Particle.variable("temperature", tempFString);
+
+  Particle.subscribe("engine-button", subscribeHandler);
 
   Particle.connect();
 }
@@ -47,5 +62,9 @@ void loop() // Put code here to loop forever
   tempFString = String(tempF, 2);
 
   Serial.printlnf("Temperature: %.2f\t Brightness: %d%%", tempF, brightness);
-  softDelay(500);
+
+  snprintf(message, sizeof(message), "{\"temperature\":\"%.2f\",\"brightness\":\"%d\"}", tempF, brightness);
+  Particle.publish("engineReading", message);
+
+  softDelay(4000);
 }
