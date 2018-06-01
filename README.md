@@ -1,13 +1,10 @@
 # engine-iot
 Particle Photon lesson plans and resources for the the Maine FabLab at Engine
 
-***
+## Reference
 
-### Quick Links:
-
-[Particle Firmware Reference](https://docs.particle.io/reference/firmware/photon/)
-
-***
+### [Parts List](parts-list)
+### [Style Guide](style-guide)
 
 ## Syllabus:
 
