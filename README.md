@@ -1,5 +1,5 @@
 # engine-iot
-Particle Photon lesson plans and resources for the the Maine FabLab at Engine
+Particle Photon lesson plans and resources for the Maine FabLab at Engine
 
 ## Reference
 
