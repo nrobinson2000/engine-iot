@@ -10,22 +10,3 @@ The Particle Cloud provides a simple and secure way to make IoT projects with th
 ### Photon to Photon communication:
 
 In this lesson we'll communicate wirelessly between two Photons to send and receive data.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#

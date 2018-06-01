@@ -49,27 +49,3 @@ Before `setup()`: settings are applied, the thermometer object is created, varia
 In `setup()`: pins are initialized, the thermometer and serial monitor are initialized, the Particle Cloud variables are initialized, and the Photon connects to the Particle Cloud.
 
 In `loop()`, the brightness is read and converted to a percent, the temperature is read, and the serial monitor prints the results. Readings are only done every 4000 milliseconds because of `softDelay(4000)`. The reason we use `softDelay()` and not `delay()` is that it is non-blocking, meaning that the Photon can still do system processes during the 4000 millisecond pause between readings.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#
