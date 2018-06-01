@@ -5,6 +5,7 @@ Particle Photon lesson plans and resources for the the Maine FabLab at Engine
 
 ### [Parts List](parts-list)
 ### [Style Guide](style-guide)
+### [Particle Photon Pinout](pinouts/particle-photon.png)
 
 ## Syllabus:
 
